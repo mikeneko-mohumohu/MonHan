@@ -18,6 +18,7 @@
   const items2 = ["111","222","333"];
 
   // 1コンポーネントは1つのくくりにでないといけない
+  // 関数型でのコンポーネント定義 シンプルで早いがやれることが少ないらしい
   const TodoList = (props) => {
     return (
       <div>
@@ -35,9 +36,24 @@
     );
   }
 
+  // クラス構文でのコンポーネント定義 やれることが多いらしい
+  class TodoApp extends React.Component {
+    render() {
+      return (
+        <div>
+          <h3>TODOアプリ</h3>
+          <form>
+            <input/>
+            <button>Add</button>
+          </form>
+        </div>
+      );
+    }
+  }
+
 
   ReactDOM.render( // コンポーネント作成して読み込ませる
-    <TodoList items={items} items2={items2}/>, // <コンポーネント名 コンポーネント内の変数名=外部の要素/>で値を渡せる
+    <TodoApp />,
     document.getElementById('content')
   );
   </script>

@@ -14,10 +14,48 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
 
   <script type="text/babel">
-  const items = ["aaa","bbb","ccc"];
-  const items2 = ["111","222","333"];
 
-  // 1コンポーネントは1つのくくりにでないといけない
+  // クラス構文でのコンポーネント定義 やれることが多いらしい
+  class TodoApp extends React.Component {
+    constructor(props) {
+      super(props);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.state = {
+        items: [],
+        text: ''
+      };
+    }
+
+    //クラス外の関数を呼び出す
+    render() {
+      return (
+        <div>
+          <h3>TODOアプリ</h3>
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleChange} value={this.state.text}/>
+            <button>Add</button>
+            <TodoList items={this.state.items}/>
+          </form>
+        </div>
+      );
+    }
+
+    handleChange(e) {
+      // this.setState({ステータス名: 更新内容})
+      this.setState({text: e.target.value});
+    }
+
+    handleSubmit(e) {
+      // 既存のitemにtextの値を加える
+      e.preventDefault();
+      const newItem = this.state.text;
+      this.setState((prevState) => ({
+        items: prevState.items.concat(newItem)
+      }));
+    }
+  }
+
   // 関数型でのコンポーネント定義 シンプルで早いがやれることが少ないらしい
   const TodoList = (props) => {
     return (
@@ -27,29 +65,10 @@
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <ul>
-          {props.items2.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
       </div>
     );
   }
 
-  // クラス構文でのコンポーネント定義 やれることが多いらしい
-  class TodoApp extends React.Component {
-    render() {
-      return (
-        <div>
-          <h3>TODOアプリ</h3>
-          <form>
-            <input/>
-            <button>Add</button>
-          </form>
-        </div>
-      );
-    }
-  }
 
 
   ReactDOM.render( // コンポーネント作成して読み込ませる

@@ -62,16 +62,18 @@
     var list = [];
 
     for (var i in props.items) {
-      for(var counter = 1; counter <= props.items[i].level; counter++){
-        list.push(<li>{props.items[i].name} level{counter}</li>);
+      var skillContent = [];
+      skillContent.push(props.items[i].name);// html要素使わない場合{}で囲わない
+      for(var counter = 0; counter <= props.items[i].level; counter++){
+        skillContent.push(counter);
+        skillContent.push(<input type="radio" key={counter} name={props.items[i].name}/>);
       };
+      list.push(<div>{skillContent}</div>);
     };
 
     return (
       <div>
-        <ul>
-          {list}
-        </ul>
+        {list}
       </div>
     );
   }

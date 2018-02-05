@@ -14,8 +14,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
 
   <script type="text/babel">
+  const style = {
+    container: {
+      color: 'blue',
+      fontSize: 32
+    }
+  };
+
     ReactDOM.render( // DOMの描画　ReactDOM.render(コンポーネント,場所)
-      <h1>Hello, World</h1>,
+      <h1 style={style.container}>Hello, World</h1>, // スタイルの宣言
       document.getElementById('content')
     );
   </script>

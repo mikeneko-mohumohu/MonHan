@@ -15,15 +15,17 @@
 
   <script type="text/babel">
 
-  // クラス構文でのコンポーネント定義 やれることが多いらしい
   class TodoApp extends React.Component {
     constructor(props) {
       super(props);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
-        items: [],
-        text: ''
+        items: [
+          {name:'攻撃',level:7},
+          {name:'火属性攻撃強化',level:5},
+          {name:'水属性攻撃強化',level:5}
+        ],
       };
     }
 
@@ -33,9 +35,9 @@
         <div>
           <h3>TODOアプリ</h3>
           <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange} value={this.state.text}/>
-            <button>Add</button>
-            <TodoList items={this.state.items}/>
+            <CheckList items={this.state.items}/>
+            <input type="checkbox" onChange={this.handleChange}/>
+            <button>検索</button>
           </form>
         </div>
       );
@@ -56,20 +58,23 @@
     }
   }
 
-  // 関数型でのコンポーネント定義 シンプルで早いがやれることが少ないらしい
-  const TodoList = (props) => {
+  const CheckList = (props) => {
+    var list = [];
+
+    for (var i in props.items) {
+      for(var counter = 1; counter <= props.items[i].level; counter++){
+        list.push(<li>{props.items[i].name} level{counter}</li>);
+      };
+    };
+
     return (
       <div>
         <ul>
-          {props.items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          {list}
         </ul>
       </div>
     );
   }
-
-
 
   ReactDOM.render( // コンポーネント作成して読み込ませる
     <TodoApp />,

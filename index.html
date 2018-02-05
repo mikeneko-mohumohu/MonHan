@@ -14,17 +14,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
 
   <script type="text/babel">
-  const style = {
-    container: {
-      color: 'blue',
-      fontSize: 32
-    }
-  };
+  const items = ["aaa","bbb","ccc"];
+  const items2 = ["111","222","333"];
 
-    ReactDOM.render( // DOMの描画　ReactDOM.render(コンポーネント,場所)
-      <h1 style={style.container}>Hello, World</h1>, // スタイルの宣言
-      document.getElementById('content')
+  // 1コンポーネントは1つのくくりにでないといけない
+  const TodoList = (props) => {
+    return (
+      <div>
+        <ul>
+          {props.items.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+        <ul>
+          {props.items2.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
     );
+  }
+
+
+  ReactDOM.render( // コンポーネント作成して読み込ませる
+    <TodoList items={items} items2={items2}/>, // <コンポーネント名 コンポーネント内の変数名=外部の要素/>で値を渡せる
+    document.getElementById('content')
+  );
   </script>
 
 </body>

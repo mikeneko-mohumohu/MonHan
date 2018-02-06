@@ -21,6 +21,20 @@
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
+        skillEquipments: {
+          attack:0,//攻撃
+          fireEnhance:0,//火強化
+          waterEnhance:0,//水強化
+          ThunderEnhance:0,//雷強化
+          iceEnhance:0,//氷強化
+          dragonEnhance:0,//龍強化
+          poisonEnhance:0,//毒強化
+          paralysisEnhance:0,//麻痺強化
+          sleepEnhance:0,//睡眠強化
+          explosionEnhance:0,//爆破強化
+          chatch:0,//見切り
+
+        },
         skills: [
           {name:'攻撃',level:7},
           {name:'火属性攻撃強化',level:5},
@@ -154,25 +168,43 @@
     }
 
     handleChange(event) {
-      console.log(event.target)
+      var skillEquipments = this.state.skillEquipments;
 
       // this.setState({ステータス名: 更新内容})
       switch (event.target.name) {
         case '攻撃':
+          skillEquipments.attack = event.target.value;
           break;
         case '火属性攻撃強化':
+          skillEquipments.fireEnhance = event.target.value;
           break;
       }
-      this.setState({text: event.target.value});
+      this.setState({skillEquipments: skillEquipments});
+      console.log(this.state.skillEquipments);
     }
 
     handleSubmit(event) {
-      // 既存のitemにtextの値を加える
-      event.preventDefault();
-      const newItem = this.state.text;
+      event.preventDefault();//サブミット止める
+
+      //OPTIMIZE 5重ループとか絶対変・・・やり方考える
+      /*
+      for (var head in headEquipments) {
+        for (var head in headEquipments) {
+          for (var head in headEquipments) {
+            for (var head in headEquipments) {
+              for (var head in headEquipments) {
+
+                }
+              }
+            }
+          }
+        }
+      }
+
       this.setState((prevState) => ({
         items: prevState.items.concat(newItem)
       }));
+      */
     }
   }
 

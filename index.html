@@ -22,137 +22,260 @@
       this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
         skillEquipments: {
-          bestHitAttribute,//会心撃【属性】
-          bestHitParticular,//会心撃【特殊】
-          thunderEnhance,//雷属性攻撃強化
-          iceEnhance,//氷属性攻撃強化
-          sleepEnhance,//睡眠属性強化
-          poisonEnhance,//毒属性強化
-          explosionEnhance,//爆破属性強化
-          hien,//飛燕
-          fireEnhance,//火属性攻撃強化
-          paralysisEnhance,//麻痺属性強化
-          chatch,//見切り
-          waterEnhance,//水属性攻撃強化
-          dragonEnhance,//龍属性攻撃強化
-          attack,//攻撃
-          challenger,//挑戦者
-          might,//渾身
-          specialBestHit,//超会心
-          resentment,//逆恨み
-          dragonSealEnhance,//龍封力強化
-          crisisChance,//火事場力
-          slideEnhance,//滑走強化
-          KO,//KO術
-          weekness,//弱点特効
-          jump,//ジャンプ鉄人
-          concentration,//集中
-          gradStamina,//スタミナ奪取
-          frankAttribute,//属性解放/装填拡張
-          artisan,//匠
-          poisonDamageEnhance,//毒ダメージ強化
-          bluntInstrument,//鈍器使い
-          storage,//納刀術
-          ride,//乗り名人
-          drawSwordPower,//抜刀術【力】
-          drawSwordSkill,//抜刀術【技】
-          flutePlayer,//笛吹き名人
-          fortitude,//不屈
-          bombardment,//砲撃手
-          gunnery,//砲術
-          bomber,//ボマー
-          break,//破壊王
-          forceWake,//力の解放
-          full,//フルチャージ
-          enhanceEndure,//強化持続
-          polish,//剛刃研磨
-          mindEye,//心眼/弾導強化
-          expert,//達人芸
-          fineSword,//業物/弾丸節約
-          naturalEnhance,//無属性強化
-          spiritProtection,//精霊の加護
-          defense,//防御
-          recoveryRate,//回復速度
-          physicalRecoveryUp,//体力回復UP
-          physicalStrength,//体力増強
-          sporeKnowledge,//綿胞子草の知識
-          guts,//根性
-          staminaRecovryUp,//スタミナ急速回復
-          staminaMaxBreak,//スタミナ上限突破
-          martialArt,//体術
-          hungryTolerance,//腹減り耐性
-          stirringUp,//奮起
-          runner,//ランナー
-          avoidDistantUp,//回避距離UP
-          avoidPower,//回避性能
-          clymer,//クライマー
-          sityuu,//死中に活
-          dive,//飛び込み
-          guardPower,//ガード性能
-          guardBuildup,//ガード強化
-          thunderTolerance,//雷耐性
-          faintTolerance,//気絶耐性
-          iceTolerance,//氷耐性
-          miasmaAdjustment,//瘴気環境適応
-          sleepTolerance,//睡眠耐性
-          attributeTolerance,//属性やられ耐性
-          quakeProof,//耐震
-          poisonTolerance,//毒耐性
-          mudTolerance,//泥耐性
-          bombTolerance,//爆破やられ耐性
-          fireTolerance,//火耐性
-          winceTolerance,//ひるみ軽減
-          windPressureTolerance,//風圧耐性
-          defenseDownTolerance,//防御力DOWN耐性
-          paralysisTolerance,//麻痺耐性
-          waterTolerance,//水耐性
-          earplug,//耳栓
-          dragonTolerance,//龍耐性
-          lacerationTolerance,//裂傷耐性
-          heatVoid,//熱ダメージ無効
-          miasmaTolerance,//瘴気耐性
-          windPressureVoid,//風圧完全無効
-          gunshotBuildup,//特殊射撃強化
-          cannonBallUp,//砲弾装填数UP
-          slugBuildup,//散弾・剛射撃強化
-          ammoBuildup,//通常弾・通常矢強化
-          pierceBuildup,//貫通弾・竜の一矢強化
-          itemBuildup,//アイテム使用強化
-          fungiLove,//キノコ大好き
-          widening,//広域化
-          manure,//こやし名人
-          preparation,//整備
-          flashBuildup,//閃光強化
-          whetstone,//砥石使用高速化
-          grill,//肉焼き名人
-          eating,//早食い
-          gratification,//満足感
-          transport,//運搬の達人
-          insect,//昆虫標本の達人
-          gather,//採集の達人
-          flora,//植生学
-          exploraLucky,//探索者の幸運
-          geology,//地質学
-          stripping,//剥ぎ取り鉄人
-          honey,//ハニーハンター
-          detection,//感知
-          capture,//捕獲名人
-          lucky,//幸運
-          lead,//オトモへの采配
-          threaten,//威嚇
-          guideReactionUp,//導蟲反応距離UP
-          latentia,//潜伏
-          tracing,//追跡の達人
-          scholar,//研究者
-          squat,//しゃがみ移動速度UP
-          waterPlaceAdjustment,//水場適応
-          loadingUp,//スリンガー装填数UP
-          fishing,//釣り名人
+          bestHitAttribute:0,//会心撃【属性】
+          bestHitParticular:0,//会心撃【特殊】
+          thunderEnhance:0,//雷属性攻撃強化
+          iceEnhance:0,//氷属性攻撃強化
+          sleepEnhance:0,//睡眠属性強化
+          poisonEnhance:0,//毒属性強化
+          explosionEnhance:0,//爆破属性強化
+          hien:0,//飛燕
+          fireEnhance:0,//火属性攻撃強化
+          paralysisEnhance:0,//麻痺属性強化
+          chatch:0,//見切り
+          waterEnhance:0,//水属性攻撃強化
+          dragonEnhance:0,//龍属性攻撃強化
+          attack:0,//攻撃
+          challenger:0,//挑戦者
+          might:0,//渾身
+          specialBestHit:0,//超会心
+          resentment:0,//逆恨み
+          dragonSealEnhance:0,//龍封力強化
+          crisisChance:0,//火事場力
+          slideEnhance:0,//滑走強化
+          KO:0,//KO術
+          weekness:0,//弱点特効
+          jump:0,//ジャンプ鉄人
+          concentration:0,//集中
+          gradStamina:0,//スタミナ奪取
+          frankAttribute:0,//属性解放/装填拡張
+          artisan:0,//匠
+          poisonDamageEnhance:0,//毒ダメージ強化
+          bluntInstrument:0,//鈍器使い
+          storage:0,//納刀術
+          ride:0,//乗り名人
+          drawSwordPower:0,//抜刀術【力】
+          drawSwordSkill:0,//抜刀術【技】
+          flutePlayer:0,//笛吹き名人
+          fortitude:0,//不屈
+          bombardment:0,//砲撃手
+          gunnery:0,//砲術
+          bomber:0,//ボマー
+          break:0,//破壊王
+          forceWake:0,//力の解放
+          full:0,//フルチャージ
+          enhanceEndure:0,//強化持続
+          polish:0,//剛刃研磨
+          mindEye:0,//心眼/弾導強化
+          expert:0,//達人芸
+          fineSword:0,//業物/弾丸節約
+          naturalEnhance:0,//無属性強化
+          spiritProtection:0,//精霊の加護
+          defense:0,//防御
+          recoveryRate:0,//回復速度
+          physicalRecoveryUp:0,//体力回復UP
+          physicalStrength:0,//体力増強
+          sporeKnowledge:0,//綿胞子草の知識
+          guts:0,//根性
+          staminaRecovryUp:0,//スタミナ急速回復
+          staminaMaxBreak:0,//スタミナ上限突破
+          martialArt:0,//体術
+          hungryTolerance:0,//腹減り耐性
+          stirringUp:0,//奮起
+          runner:0,//ランナー
+          avoidDistantUp:0,//回避距離UP
+          avoidPower:0,//回避性能
+          clymer:0,//クライマー
+          sityuu:0,//死中に活
+          dive:0,//飛び込み
+          guardPower:0,//ガード性能
+          guardBuildup:0,//ガード強化
+          thunderTolerance:0,//雷耐性
+          faintTolerance:0,//気絶耐性
+          iceTolerance:0,//氷耐性
+          miasmaAdjustment:0,//瘴気環境適応
+          sleepTolerance:0,//睡眠耐性
+          attributeTolerance:0,//属性やられ耐性
+          quakeProof:0,//耐震
+          poisonTolerance:0,//毒耐性
+          mudTolerance:0,//泥耐性
+          bombTolerance:0,//爆破やられ耐性
+          fireTolerance:0,//火耐性
+          winceTolerance:0,//ひるみ軽減
+          windPressureTolerance:0,//風圧耐性
+          defenseDownTolerance:0,//防御力DOWN耐性
+          paralysisTolerance:0,//麻痺耐性
+          waterTolerance:0,//水耐性
+          earplug:0,//耳栓
+          dragonTolerance:0,//龍耐性
+          lacerationTolerance:0,//裂傷耐性
+          heatVoid:0,//熱ダメージ無効
+          miasmaTolerance:0,//瘴気耐性
+          windPressureVoid:0,//風圧完全無効
+          gunshotBuildup:0,//特殊射撃強化
+          cannonBallUp:0,//砲弾装填数UP
+          slugBuildup:0,//散弾・剛射撃強化
+          ammoBuildup:0,//通常弾・通常矢強化
+          pierceBuildup:0,//貫通弾・竜の一矢強化
+          itemBuildup:0,//アイテム使用強化
+          fungiLove:0,//キノコ大好き
+          widening:0,//広域化
+          manure:0,//こやし名人
+          preparation:0,//整備
+          flashBuildup:0,//閃光強化
+          whetstone:0,//砥石使用高速化
+          grill:0,//肉焼き名人
+          eating:0,//早食い
+          gratification:0,//満足感
+          transport:0,//運搬の達人
+          insect:0,//昆虫標本の達人
+          gather:0,//採集の達人
+          flora:0,//植生学
+          exploraLucky:0,//探索者の幸運
+          geology:0,//地質学
+          stripping:0,//剥ぎ取り鉄人
+          honey:0,//ハニーハンター
+          detection:0,//感知
+          capture:0,//捕獲名人
+          lucky:0,//幸運
+          lead:0,//オトモへの采配
+          threaten:0,//威嚇
+          guideReactionUp:0,//導蟲反応距離UP
+          latentia:0,//潜伏
+          tracing:0,//追跡の達人
+          scholar:0,//研究者
+          squat:0,//しゃがみ移動速度UP
+          waterPlaceAdjustment:0,//水場適応
+          loadingUp:0,//スリンガー装填数UP
+          fishing:0//釣り名人
         },
         skills: [
-          {name:'攻撃',level:7},
-          {name:'火属性攻撃強化',level:5},
-          {name:'水属性攻撃強化',level:5}
+        {name:'会心撃【属性】',level:1},
+        {name:'会心撃【特殊】',level:1},
+        {name:'雷属性攻撃強化',level:5},
+        {name:'氷属性攻撃強化',level:5},
+        {name:'睡眠属性強化',level:3},
+        {name:'毒属性強化',level:3},
+        {name:'爆破属性強化',level:3},
+        {name:'飛燕',level:1},
+        {name:'火属性攻撃強化',level:5},
+        {name:'麻痺属性強化',level:3},
+        {name:'見切り',level:7},
+        {name:'水属性攻撃強化',level:5},
+        {name:'龍属性攻撃強化',level:5},
+        {name:'攻撃',level:7},
+        {name:'挑戦者',level:5},
+        {name:'渾身',level:3},
+        {name:'超会心',level:3},
+        {name:'逆恨み',level:2},
+        {name:'龍封力強化',level:1},
+        {name:'火事場力',level:5},
+        {name:'滑走強化',level:1},
+        {name:'KO術',level:3},
+        {name:'弱点特効',level:3},
+        {name:'ジャンプ鉄人',level:1},
+        {name:'集中',level:3},
+        {name:'スタミナ奪取',level:3},
+        {name:'属性解放/装填拡張',level:3},
+        {name:'匠',level:5},
+        {name:'毒ダメージ強化',level:1},
+        {name:'鈍器使い',level:1},
+        {name:'納刀術',level:3},
+        {name:'乗り名人',level:1},
+        {name:'抜刀術【力】',level:1},
+        {name:'抜刀術【技】',level:3},
+        {name:'笛吹き名人',level:1},
+        {name:'不屈',level:1},
+        {name:'砲撃手',level:2},
+        {name:'砲術',level:3},
+        {name:'ボマー',level:3},
+        {name:'破壊王',level:3},
+        {name:'力の解放',level:5},
+        {name:'フルチャージ',level:3},
+        {name:'強化持続',level:3},
+        {name:'剛刃研磨',level:1},
+        {name:'心眼/弾導強化',level:1},
+        {name:'達人芸',level:1},
+        {name:'業物/弾丸節約',level:1},
+        {name:'無属性強化',level:1},
+        {name:'精霊の加護',level:3},
+        {name:'防御',level:7},
+        {name:'回復速度',level:3},
+        {name:'体力回復UP',level:3},
+        {name:'体力増強',level:3},
+        {name:'綿胞子草の知識',level:3},
+        {name:'根性',level:1},
+        {name:'スタミナ急速回復',level:3},
+        {name:'スタミナ上限突破',level:1},
+        {name:'体術',level:5},
+        {name:'腹減り耐性',level:3},
+        {name:'奮起',level:1},
+        {name:'ランナー',level:3},
+        {name:'回避距離UP',level:3},
+        {name:'回避性能',level:5},
+        {name:'クライマー',level:1},
+        {name:'死中に活',level:1},
+        {name:'飛び込み',level:1},
+        {name:'ガード性能',level:5},
+        {name:'ガード強化',level:1},
+        {name:'雷耐性',level:3},
+        {name:'気絶耐性',level:3},
+        {name:'氷耐性',level:3},
+        {name:'瘴気環境適応',level:1},
+        {name:'睡眠耐性',level:3},
+        {name:'属性やられ耐性',level:3},
+        {name:'耐震',level:3},
+        {name:'毒耐性',level:3},
+        {name:'泥耐性',level:1},
+        {name:'爆破やられ耐性',level:3},
+        {name:'火耐性',level:3},
+        {name:'ひるみ軽減',level:3},
+        {name:'風圧耐性',level:5},
+        {name:'防御力DOWN耐性',level:3},
+        {name:'麻痺耐性',level:3},
+        {name:'水耐性',level:3},
+        {name:'耳栓',level:5},
+        {name:'龍耐性',level:3},
+        {name:'裂傷耐性',level:3},
+        {name:'熱ダメージ無効',level:1},
+        {name:'瘴気耐性',level:3},
+        {name:'風圧完全無効',level:1},
+        {name:'特殊射撃強化',level:2},
+        {name:'砲弾装填数UP',level:1},
+        {name:'散弾・剛射撃強化',level:1},
+        {name:'通常弾・通常矢強化',level:1},
+        {name:'貫通弾・竜の一矢強化',level:1},
+        {name:'アイテム使用強化',level:3},
+        {name:'キノコ大好き',level:3},
+        {name:'広域化',level:5},
+        {name:'こやし名人',level:1},
+        {name:'整備',level:3},
+        {name:'閃光強化',level:1},
+        {name:'砥石使用高速化',level:3},
+        {name:'肉焼き名人',level:1},
+        {name:'早食い',level:3},
+        {name:'満足感',level:1},
+        {name:'運搬の達人',level:1},
+        {name:'昆虫標本の達人',level:3},
+        {name:'採集の達人',level:1},
+        {name:'植生学',level:4},
+        {name:'探索者の幸運',level:1},
+        {name:'地質学',level:3},
+        {name:'剥ぎ取り鉄人',level:1},
+        {name:'ハニーハンター',level:1},
+        {name:'感知',level:1},
+        {name:'捕獲名人',level:1},
+        {name:'幸運',level:1},
+        {name:'オトモへの采配',level:5},
+        {name:'威嚇',level:3},
+        {name:'導蟲反応距離UP',level:1},
+        {name:'潜伏',level:3},
+        {name:'追跡の達人',level:1},
+        {name:'研究者',level:1},
+        {name:'しゃがみ移動速度UP',level:1},
+        {name:'水場適応',level:3},
+        {name:'スリンガー装填数UP',level:3},
+        {name:'釣り名人',level:1}
         ],
         items: [],
         headEquipments: [
@@ -286,12 +409,132 @@
 
       // this.setState({ステータス名: 更新内容})
       switch (event.target.name) {
-        case '攻撃':
-          skillEquipments.attack = event.target.value;
-          break;
-        case '火属性攻撃強化':
-          skillEquipments.fireEnhance = event.target.value;
-          break;
+      case '会心撃【属性】':skillEquipments.bestHitAttribute = event.target.value;break;
+      case '会心撃【特殊】':skillEquipments.bestHitParticular = event.target.value;break;
+      case '雷属性攻撃強化':skillEquipments.thunderEnhance = event.target.value;break;
+      case '氷属性攻撃強化':skillEquipments.iceEnhance = event.target.value;break;
+      case '睡眠属性強化':skillEquipments.sleepEnhance = event.target.value;break;
+      case '毒属性強化':skillEquipments.poisonEnhance = event.target.value;break;
+      case '爆破属性強化':skillEquipments.explosionEnhance = event.target.value;break;
+      case '飛燕':skillEquipments.hien = event.target.value;break;
+      case '火属性攻撃強化':skillEquipments.fireEnhance = event.target.value;break;
+      case '麻痺属性強化':skillEquipments.paralysisEnhance = event.target.value;break;
+      case '見切り':skillEquipments.chatch = event.target.value;break;
+      case '水属性攻撃強化':skillEquipments.waterEnhance = event.target.value;break;
+      case '龍属性攻撃強化':skillEquipments.dragonEnhance = event.target.value;break;
+      case '攻撃':skillEquipments.attack = event.target.value;break;
+      case '挑戦者':skillEquipments.challenger = event.target.value;break;
+      case '渾身':skillEquipments.might = event.target.value;break;
+      case '超会心':skillEquipments.specialBestHit = event.target.value;break;
+      case '逆恨み':skillEquipments.resentment = event.target.value;break;
+      case '龍封力強化':skillEquipments.dragonSealEnhance = event.target.value;break;
+      case '火事場力':skillEquipments.crisisChance = event.target.value;break;
+      case '滑走強化':skillEquipments.slideEnhance = event.target.value;break;
+      case 'KO術':skillEquipments.KO = event.target.value;break;
+      case '弱点特効':skillEquipments.weekness = event.target.value;break;
+      case 'ジャンプ鉄人':skillEquipments.jump = event.target.value;break;
+      case '集中':skillEquipments.concentration = event.target.value;break;
+      case 'スタミナ奪取':skillEquipments.gradStamina = event.target.value;break;
+      case '属性解放/装填拡張':skillEquipments.frankAttribute = event.target.value;break;
+      case '匠':skillEquipments.artisan = event.target.value;break;
+      case '毒ダメージ強化':skillEquipments.poisonDamageEnhance = event.target.value;break;
+      case '鈍器使い':skillEquipments.bluntInstrument = event.target.value;break;
+      case '納刀術':skillEquipments.storage = event.target.value;break;
+      case '乗り名人':skillEquipments.ride = event.target.value;break;
+      case '抜刀術【力】':skillEquipments.drawSwordPower = event.target.value;break;
+      case '抜刀術【技】':skillEquipments.drawSwordSkill = event.target.value;break;
+      case '笛吹き名人':skillEquipments.flutePlayer = event.target.value;break;
+      case '不屈':skillEquipments.fortitude = event.target.value;break;
+      case '砲撃手':skillEquipments.bombardment = event.target.value;break;
+      case '砲術':skillEquipments.gunnery = event.target.value;break;
+      case 'ボマー':skillEquipments.bomber = event.target.value;break;
+      case '破壊王':skillEquipments.break = event.target.value;break;
+      case '力の解放':skillEquipments.forceWake = event.target.value;break;
+      case 'フルチャージ':skillEquipments.full = event.target.value;break;
+      case '強化持続':skillEquipments.enhanceEndure = event.target.value;break;
+      case '剛刃研磨':skillEquipments.polish = event.target.value;break;
+      case '心眼/弾導強化':skillEquipments.mindEye = event.target.value;break;
+      case '達人芸':skillEquipments.expert = event.target.value;break;
+      case '業物/弾丸節約':skillEquipments.fineSword = event.target.value;break;
+      case '無属性強化':skillEquipments.naturalEnhance = event.target.value;break;
+      case '精霊の加護':skillEquipments.spiritProtection = event.target.value;break;
+      case '防御':skillEquipments.defense = event.target.value;break;
+      case '回復速度':skillEquipments.recoveryRate = event.target.value;break;
+      case '体力回復UP':skillEquipments.physicalRecoveryUp = event.target.value;break;
+      case '体力増強':skillEquipments.physicalStrength = event.target.value;break;
+      case '綿胞子草の知識':skillEquipments.sporeKnowledge = event.target.value;break;
+      case '根性':skillEquipments.guts = event.target.value;break;
+      case 'スタミナ急速回復':skillEquipments.staminaRecovryUp = event.target.value;break;
+      case 'スタミナ上限突破':skillEquipments.staminaMaxBreak = event.target.value;break;
+      case '体術':skillEquipments.martialArt = event.target.value;break;
+      case '腹減り耐性':skillEquipments.hungryTolerance = event.target.value;break;
+      case '奮起':skillEquipments.stirringUp = event.target.value;break;
+      case 'ランナー':skillEquipments.runner = event.target.value;break;
+      case '回避距離UP':skillEquipments.avoidDistantUp = event.target.value;break;
+      case '回避性能':skillEquipments.avoidPower = event.target.value;break;
+      case 'クライマー':skillEquipments.clymer = event.target.value;break;
+      case '死中に活':skillEquipments.sityuu = event.target.value;break;
+      case '飛び込み':skillEquipments.dive = event.target.value;break;
+      case 'ガード性能':skillEquipments.guardPower = event.target.value;break;
+      case 'ガード強化':skillEquipments.guardBuildup = event.target.value;break;
+      case '雷耐性':skillEquipments.thunderTolerance = event.target.value;break;
+      case '気絶耐性':skillEquipments.faintTolerance = event.target.value;break;
+      case '氷耐性':skillEquipments.iceTolerance = event.target.value;break;
+      case '瘴気環境適応':skillEquipments.miasmaAdjustment = event.target.value;break;
+      case '睡眠耐性':skillEquipments.sleepTolerance = event.target.value;break;
+      case '属性やられ耐性':skillEquipments.attributeTolerance = event.target.value;break;
+      case '耐震':skillEquipments.quakeProof = event.target.value;break;
+      case '毒耐性':skillEquipments.poisonTolerance = event.target.value;break;
+      case '泥耐性':skillEquipments.mudTolerance = event.target.value;break;
+      case '爆破やられ耐性':skillEquipments.bombTolerance = event.target.value;break;
+      case '火耐性':skillEquipments.fireTolerance = event.target.value;break;
+      case 'ひるみ軽減':skillEquipments.winceTolerance = event.target.value;break;
+      case '風圧耐性':skillEquipments.windPressureTolerance = event.target.value;break;
+      case '防御力DOWN耐性':skillEquipments.defenseDownTolerance = event.target.value;break;
+      case '麻痺耐性':skillEquipments.paralysisTolerance = event.target.value;break;
+      case '水耐性':skillEquipments.waterTolerance = event.target.value;break;
+      case '耳栓':skillEquipments.earplug = event.target.value;break;
+      case '龍耐性':skillEquipments.dragonTolerance = event.target.value;break;
+      case '裂傷耐性':skillEquipments.lacerationTolerance = event.target.value;break;
+      case '熱ダメージ無効':skillEquipments.heatVoid = event.target.value;break;
+      case '瘴気耐性':skillEquipments.miasmaTolerance = event.target.value;break;
+      case '風圧完全無効':skillEquipments.windPressureVoid = event.target.value;break;
+      case '特殊射撃強化':skillEquipments.gunshotBuildup = event.target.value;break;
+      case '砲弾装填数UP':skillEquipments.cannonBallUp = event.target.value;break;
+      case '散弾・剛射撃強化':skillEquipments.slugBuildup = event.target.value;break;
+      case '通常弾・通常矢強化':skillEquipments.ammoBuildup = event.target.value;break;
+      case '貫通弾・竜の一矢強化':skillEquipments.pierceBuildup = event.target.value;break;
+      case 'アイテム使用強化':skillEquipments.itemBuildup = event.target.value;break;
+      case 'キノコ大好き':skillEquipments.fungiLove = event.target.value;break;
+      case '広域化':skillEquipments.widening = event.target.value;break;
+      case 'こやし名人':skillEquipments.manure = event.target.value;break;
+      case '整備':skillEquipments.preparation = event.target.value;break;
+      case '閃光強化':skillEquipments.flashBuildup = event.target.value;break;
+      case '砥石使用高速化':skillEquipments.whetstone = event.target.value;break;
+      case '肉焼き名人':skillEquipments.grill = event.target.value;break;
+      case '早食い':skillEquipments.eating = event.target.value;break;
+      case '満足感':skillEquipments.gratification = event.target.value;break;
+      case '運搬の達人':skillEquipments.transport = event.target.value;break;
+      case '昆虫標本の達人':skillEquipments.insect = event.target.value;break;
+      case '採集の達人':skillEquipments.gather = event.target.value;break;
+      case '植生学':skillEquipments.flora = event.target.value;break;
+      case '探索者の幸運':skillEquipments.exploraLucky = event.target.value;break;
+      case '地質学':skillEquipments.geology = event.target.value;break;
+      case '剥ぎ取り鉄人':skillEquipments.stripping = event.target.value;break;
+      case 'ハニーハンター':skillEquipments.honey = event.target.value;break;
+      case '感知':skillEquipments.detection = event.target.value;break;
+      case '捕獲名人':skillEquipments.capture = event.target.value;break;
+      case '幸運':skillEquipments.lucky = event.target.value;break;
+      case 'オトモへの采配':skillEquipments.lead = event.target.value;break;
+      case '威嚇':skillEquipments.threaten = event.target.value;break;
+      case '導蟲反応距離UP':skillEquipments.guideReactionUp = event.target.value;break;
+      case '潜伏':skillEquipments.latentia = event.target.value;break;
+      case '追跡の達人':skillEquipments.tracing = event.target.value;break;
+      case '研究者':skillEquipments.scholar = event.target.value;break;
+      case 'しゃがみ移動速度UP':skillEquipments.squat = event.target.value;break;
+      case '水場適応':skillEquipments.waterPlaceAdjustment = event.target.value;break;
+      case 'スリンガー装填数UP':skillEquipments.loadingUp = event.target.value;break;
+      case '釣り名人':skillEquipments.fishing = event.target.value;break;
       }
       this.setState({skillEquipments: skillEquipments});
       console.log(this.state.skillEquipments);
@@ -307,9 +550,6 @@
             for (var waist in this.state.waistEquipments) {
               for (var leg in this.state.legEquipments) {
 
-              if (this.state.skillEquipments.){
-
-              }
 
               }
             }

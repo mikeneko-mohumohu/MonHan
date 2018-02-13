@@ -22,18 +22,132 @@
       this.handleSubmit = this.handleSubmit.bind(this);
       this.state = {
         skillEquipments: {
-          attack:0,//攻撃
-          fireEnhance:0,//火強化
-          waterEnhance:0,//水強化
-          ThunderEnhance:0,//雷強化
-          iceEnhance:0,//氷強化
-          dragonEnhance:0,//龍強化
-          poisonEnhance:0,//毒強化
-          paralysisEnhance:0,//麻痺強化
-          sleepEnhance:0,//睡眠強化
-          explosionEnhance:0,//爆破強化
-          chatch:0,//見切り
-
+          bestHitAttribute,//会心撃【属性】
+          bestHitParticular,//会心撃【特殊】
+          thunderEnhance,//雷属性攻撃強化
+          iceEnhance,//氷属性攻撃強化
+          sleepEnhance,//睡眠属性強化
+          poisonEnhance,//毒属性強化
+          explosionEnhance,//爆破属性強化
+          hien,//飛燕
+          fireEnhance,//火属性攻撃強化
+          paralysisEnhance,//麻痺属性強化
+          chatch,//見切り
+          waterEnhance,//水属性攻撃強化
+          dragonEnhance,//龍属性攻撃強化
+          attack,//攻撃
+          challenger,//挑戦者
+          might,//渾身
+          specialBestHit,//超会心
+          resentment,//逆恨み
+          dragonSealEnhance,//龍封力強化
+          crisisChance,//火事場力
+          slideEnhance,//滑走強化
+          KO,//KO術
+          weekness,//弱点特効
+          jump,//ジャンプ鉄人
+          concentration,//集中
+          gradStamina,//スタミナ奪取
+          frankAttribute,//属性解放/装填拡張
+          artisan,//匠
+          poisonDamageEnhance,//毒ダメージ強化
+          bluntInstrument,//鈍器使い
+          storage,//納刀術
+          ride,//乗り名人
+          drawSwordPower,//抜刀術【力】
+          drawSwordSkill,//抜刀術【技】
+          flutePlayer,//笛吹き名人
+          fortitude,//不屈
+          bombardment,//砲撃手
+          gunnery,//砲術
+          bomber,//ボマー
+          break,//破壊王
+          forceWake,//力の解放
+          full,//フルチャージ
+          enhanceEndure,//強化持続
+          polish,//剛刃研磨
+          mindEye,//心眼/弾導強化
+          expert,//達人芸
+          fineSword,//業物/弾丸節約
+          naturalEnhance,//無属性強化
+          spiritProtection,//精霊の加護
+          defense,//防御
+          recoveryRate,//回復速度
+          physicalRecoveryUp,//体力回復UP
+          physicalStrength,//体力増強
+          sporeKnowledge,//綿胞子草の知識
+          guts,//根性
+          staminaRecovryUp,//スタミナ急速回復
+          staminaMaxBreak,//スタミナ上限突破
+          martialArt,//体術
+          hungryTolerance,//腹減り耐性
+          stirringUp,//奮起
+          runner,//ランナー
+          avoidDistantUp,//回避距離UP
+          avoidPower,//回避性能
+          clymer,//クライマー
+          sityuu,//死中に活
+          dive,//飛び込み
+          guardPower,//ガード性能
+          guardBuildup,//ガード強化
+          thunderTolerance,//雷耐性
+          faintTolerance,//気絶耐性
+          iceTolerance,//氷耐性
+          miasmaAdjustment,//瘴気環境適応
+          sleepTolerance,//睡眠耐性
+          attributeTolerance,//属性やられ耐性
+          quakeProof,//耐震
+          poisonTolerance,//毒耐性
+          mudTolerance,//泥耐性
+          bombTolerance,//爆破やられ耐性
+          fireTolerance,//火耐性
+          winceTolerance,//ひるみ軽減
+          windPressureTolerance,//風圧耐性
+          defenseDownTolerance,//防御力DOWN耐性
+          paralysisTolerance,//麻痺耐性
+          waterTolerance,//水耐性
+          earplug,//耳栓
+          dragonTolerance,//龍耐性
+          lacerationTolerance,//裂傷耐性
+          heatVoid,//熱ダメージ無効
+          miasmaTolerance,//瘴気耐性
+          windPressureVoid,//風圧完全無効
+          gunshotBuildup,//特殊射撃強化
+          cannonBallUp,//砲弾装填数UP
+          slugBuildup,//散弾・剛射撃強化
+          ammoBuildup,//通常弾・通常矢強化
+          pierceBuildup,//貫通弾・竜の一矢強化
+          itemBuildup,//アイテム使用強化
+          fungiLove,//キノコ大好き
+          widening,//広域化
+          manure,//こやし名人
+          preparation,//整備
+          flashBuildup,//閃光強化
+          whetstone,//砥石使用高速化
+          grill,//肉焼き名人
+          eating,//早食い
+          gratification,//満足感
+          transport,//運搬の達人
+          insect,//昆虫標本の達人
+          gather,//採集の達人
+          flora,//植生学
+          exploraLucky,//探索者の幸運
+          geology,//地質学
+          stripping,//剥ぎ取り鉄人
+          honey,//ハニーハンター
+          detection,//感知
+          capture,//捕獲名人
+          lucky,//幸運
+          lead,//オトモへの采配
+          threaten,//威嚇
+          guideReactionUp,//導蟲反応距離UP
+          latentia,//潜伏
+          tracing,//追跡の達人
+          scholar,//研究者
+          squat,//しゃがみ移動速度UP
+          waterPlaceAdjustment,//水場適応
+          loadingUp,//スリンガー装填数UP
+          fishing,//釣り名人
         },
         skills: [
           {name:'攻撃',level:7},
@@ -185,22 +299,25 @@
 
     handleSubmit(event) {
       event.preventDefault();//サブミット止める
-
       //OPTIMIZE 5重ループとか絶対変・・・やり方考える
-      /*
-      for (var head in headEquipments) {
-        for (var head in headEquipments) {
-          for (var head in headEquipments) {
-            for (var head in headEquipments) {
-              for (var head in headEquipments) {
+      for (var head in this.state.headEquipments) {
+        console.log(this.state.headEquipments[head]);
+        for (var body in this.state.bodyEquipments) {
+          for (var arm in this.state.armEquipments) {
+            for (var waist in this.state.waistEquipments) {
+              for (var leg in this.state.legEquipments) {
 
-                }
+              if (this.state.skillEquipments.){
+
+              }
+
               }
             }
           }
         }
       }
 
+      /*
       this.setState((prevState) => ({
         items: prevState.items.concat(newItem)
       }));

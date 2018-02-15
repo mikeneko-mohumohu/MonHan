@@ -542,6 +542,8 @@
 
     handleSubmit(event) {
       event.preventDefault();//サブミット止める
+      var myItems = [];
+                                            console.log('開始');
       //OPTIMIZE 5重ループとか絶対変・・・やり方考える
       for (var headNum in this.state.headEquipments) {
         for (var bodyNum in this.state.bodyEquipments) {
@@ -554,148 +556,150 @@
                 var waist = this.state.waistEquipments[waistNum];
                 var leg = this.state.legEquipments[legNum];
                 if (
-                head.bestHitAttribute+body.bestHitAttribute+arm.bestHitAttribute+waist.bestHitAttribute+leg.bestHitAttribute>=this.state.skillEquipments.bestHitAttribute&&
-                head.bestHitParticular+body.bestHitParticular+arm.bestHitParticular+waist.bestHitParticular+leg.bestHitParticular>=this.state.skillEquipments.bestHitParticular&&
-                head.thunderEnhance+body.thunderEnhance+arm.thunderEnhance+waist.thunderEnhance+leg.thunderEnhance>=this.state.skillEquipments.thunderEnhance&&
-                head.iceEnhance+body.iceEnhance+arm.iceEnhance+waist.iceEnhance+leg.iceEnhance>=this.state.skillEquipments.iceEnhance&&
-                head.sleepEnhance+body.sleepEnhance+arm.sleepEnhance+waist.sleepEnhance+leg.sleepEnhance>=this.state.skillEquipments.sleepEnhance&&
-                head.poisonEnhance+body.poisonEnhance+arm.poisonEnhance+waist.poisonEnhance+leg.poisonEnhance>=this.state.skillEquipments.poisonEnhance&&
-                head.explosionEnhance+body.explosionEnhance+arm.explosionEnhance+waist.explosionEnhance+leg.explosionEnhance>=this.state.skillEquipments.explosionEnhance&&
-                head.hien+body.hien+arm.hien+waist.hien+leg.hien>=this.state.skillEquipments.hien&&
-                head.fireEnhance+body.fireEnhance+arm.fireEnhance+waist.fireEnhance+leg.fireEnhance>=this.state.skillEquipments.fireEnhance&&
-                head.paralysisEnhance+body.paralysisEnhance+arm.paralysisEnhance+waist.paralysisEnhance+leg.paralysisEnhance>=this.state.skillEquipments.paralysisEnhance&&
-                head.chatch+body.chatch+arm.chatch+waist.chatch+leg.chatch>=this.state.skillEquipments.chatch&&
-                head.waterEnhance+body.waterEnhance+arm.waterEnhance+waist.waterEnhance+leg.waterEnhance>=this.state.skillEquipments.waterEnhance&&
-                head.dragonEnhance+body.dragonEnhance+arm.dragonEnhance+waist.dragonEnhance+leg.dragonEnhance>=this.state.skillEquipments.dragonEnhance&&
-                head.attack+body.attack+arm.attack+waist.attack+leg.attack>=this.state.skillEquipments.attack&&
-                head.challenger+body.challenger+arm.challenger+waist.challenger+leg.challenger>=this.state.skillEquipments.challenger&&
-                head.might+body.might+arm.might+waist.might+leg.might>=this.state.skillEquipments.might&&
-                head.specialBestHit+body.specialBestHit+arm.specialBestHit+waist.specialBestHit+leg.specialBestHit>=this.state.skillEquipments.specialBestHit&&
-                head.resentment+body.resentment+arm.resentment+waist.resentment+leg.resentment>=this.state.skillEquipments.resentment&&
-                head.dragonSealEnhance+body.dragonSealEnhance+arm.dragonSealEnhance+waist.dragonSealEnhance+leg.dragonSealEnhance>=this.state.skillEquipments.dragonSealEnhance&&
-                head.crisisChance+body.crisisChance+arm.crisisChance+waist.crisisChance+leg.crisisChance>=this.state.skillEquipments.crisisChance&&
-                head.slideEnhance+body.slideEnhance+arm.slideEnhance+waist.slideEnhance+leg.slideEnhance>=this.state.skillEquipments.slideEnhance&&
-                head.ko+body.ko+arm.ko+waist.ko+leg.ko>=this.state.skillEquipments.ko&&
-                head.weekness+body.weekness+arm.weekness+waist.weekness+leg.weekness>=this.state.skillEquipments.weekness&&
-                head.jump+body.jump+arm.jump+waist.jump+leg.jump>=this.state.skillEquipments.jump&&
-                head.concentration+body.concentration+arm.concentration+waist.concentration+leg.concentration>=this.state.skillEquipments.concentration&&
-                head.gradStamina+body.gradStamina+arm.gradStamina+waist.gradStamina+leg.gradStamina>=this.state.skillEquipments.gradStamina&&
-                head.frankAttribute+body.frankAttribute+arm.frankAttribute+waist.frankAttribute+leg.frankAttribute>=this.state.skillEquipments.frankAttribute&&
-                head.artisan+body.artisan+arm.artisan+waist.artisan+leg.artisan>=this.state.skillEquipments.artisan&&
-                head.poisonDamageEnhance+body.poisonDamageEnhance+arm.poisonDamageEnhance+waist.poisonDamageEnhance+leg.poisonDamageEnhance>=this.state.skillEquipments.poisonDamageEnhance&&
-                head.bluntInstrument+body.bluntInstrument+arm.bluntInstrument+waist.bluntInstrument+leg.bluntInstrument>=this.state.skillEquipments.bluntInstrument&&
-                head.storage+body.storage+arm.storage+waist.storage+leg.storage>=this.state.skillEquipments.storage&&
-                head.ride+body.ride+arm.ride+waist.ride+leg.ride>=this.state.skillEquipments.ride&&
-                head.drawSwordPower+body.drawSwordPower+arm.drawSwordPower+waist.drawSwordPower+leg.drawSwordPower>=this.state.skillEquipments.drawSwordPower&&
-                head.drawSwordSkill+body.drawSwordSkill+arm.drawSwordSkill+waist.drawSwordSkill+leg.drawSwordSkill>=this.state.skillEquipments.drawSwordSkill&&
-                head.flutePlayer+body.flutePlayer+arm.flutePlayer+waist.flutePlayer+leg.flutePlayer>=this.state.skillEquipments.flutePlayer&&
-                head.fortitude+body.fortitude+arm.fortitude+waist.fortitude+leg.fortitude>=this.state.skillEquipments.fortitude&&
-                head.bombardment+body.bombardment+arm.bombardment+waist.bombardment+leg.bombardment>=this.state.skillEquipments.bombardment&&
-                head.gunnery+body.gunnery+arm.gunnery+waist.gunnery+leg.gunnery>=this.state.skillEquipments.gunnery&&
-                head.bomber+body.bomber+arm.bomber+waist.bomber+leg.bomber>=this.state.skillEquipments.bomber&&
-                head.break+body.break+arm.break+waist.break+leg.break>=this.state.skillEquipments.break&&
-                head.forceWake+body.forceWake+arm.forceWake+waist.forceWake+leg.forceWake>=this.state.skillEquipments.forceWake&&
-                head.full+body.full+arm.full+waist.full+leg.full>=this.state.skillEquipments.full&&
-                head.enhanceEndure+body.enhanceEndure+arm.enhanceEndure+waist.enhanceEndure+leg.enhanceEndure>=this.state.skillEquipments.enhanceEndure&&
-                head.polish+body.polish+arm.polish+waist.polish+leg.polish>=this.state.skillEquipments.polish&&
-                head.mindEye+body.mindEye+arm.mindEye+waist.mindEye+leg.mindEye>=this.state.skillEquipments.mindEye&&
-                head.expert+body.expert+arm.expert+waist.expert+leg.expert>=this.state.skillEquipments.expert&&
-                head.fineSword+body.fineSword+arm.fineSword+waist.fineSword+leg.fineSword>=this.state.skillEquipments.fineSword&&
-                head.naturalEnhance+body.naturalEnhance+arm.naturalEnhance+waist.naturalEnhance+leg.naturalEnhance>=this.state.skillEquipments.naturalEnhance&&
-                head.spiritProtection+body.spiritProtection+arm.spiritProtection+waist.spiritProtection+leg.spiritProtection>=this.state.skillEquipments.spiritProtection&&
-                head.defense+body.defense+arm.defense+waist.defense+leg.defense>=this.state.skillEquipments.defense&&
-                head.recoveryRate+body.recoveryRate+arm.recoveryRate+waist.recoveryRate+leg.recoveryRate>=this.state.skillEquipments.recoveryRate&&
-                head.physicalRecoveryUp+body.physicalRecoveryUp+arm.physicalRecoveryUp+waist.physicalRecoveryUp+leg.physicalRecoveryUp>=this.state.skillEquipments.physicalRecoveryUp&&
-                head.physicalStrength+body.physicalStrength+arm.physicalStrength+waist.physicalStrength+leg.physicalStrength>=this.state.skillEquipments.physicalStrength&&
-                head.sporeKnowledge+body.sporeKnowledge+arm.sporeKnowledge+waist.sporeKnowledge+leg.sporeKnowledge>=this.state.skillEquipments.sporeKnowledge&&
-                head.guts+body.guts+arm.guts+waist.guts+leg.guts>=this.state.skillEquipments.guts&&
-                head.staminaRecovryUp+body.staminaRecovryUp+arm.staminaRecovryUp+waist.staminaRecovryUp+leg.staminaRecovryUp>=this.state.skillEquipments.staminaRecovryUp&&
-                head.staminaMaxBreak+body.staminaMaxBreak+arm.staminaMaxBreak+waist.staminaMaxBreak+leg.staminaMaxBreak>=this.state.skillEquipments.staminaMaxBreak&&
-                head.martialArt+body.martialArt+arm.martialArt+waist.martialArt+leg.martialArt>=this.state.skillEquipments.martialArt&&
-                head.hungryTolerance+body.hungryTolerance+arm.hungryTolerance+waist.hungryTolerance+leg.hungryTolerance>=this.state.skillEquipments.hungryTolerance&&
-                head.stirringUp+body.stirringUp+arm.stirringUp+waist.stirringUp+leg.stirringUp>=this.state.skillEquipments.stirringUp&&
-                head.runner+body.runner+arm.runner+waist.runner+leg.runner>=this.state.skillEquipments.runner&&
-                head.avoidDistantUp+body.avoidDistantUp+arm.avoidDistantUp+waist.avoidDistantUp+leg.avoidDistantUp>=this.state.skillEquipments.avoidDistantUp&&
-                head.avoidPower+body.avoidPower+arm.avoidPower+waist.avoidPower+leg.avoidPower>=this.state.skillEquipments.avoidPower&&
-                head.clymer+body.clymer+arm.clymer+waist.clymer+leg.clymer>=this.state.skillEquipments.clymer&&
-                head.sityuu+body.sityuu+arm.sityuu+waist.sityuu+leg.sityuu>=this.state.skillEquipments.sityuu&&
-                head.dive+body.dive+arm.dive+waist.dive+leg.dive>=this.state.skillEquipments.dive&&
-                head.guardPower+body.guardPower+arm.guardPower+waist.guardPower+leg.guardPower>=this.state.skillEquipments.guardPower&&
-                head.guardBuildup+body.guardBuildup+arm.guardBuildup+waist.guardBuildup+leg.guardBuildup>=this.state.skillEquipments.guardBuildup&&
-                head.thunderTolerance+body.thunderTolerance+arm.thunderTolerance+waist.thunderTolerance+leg.thunderTolerance>=this.state.skillEquipments.thunderTolerance&&
-                head.faintTolerance+body.faintTolerance+arm.faintTolerance+waist.faintTolerance+leg.faintTolerance>=this.state.skillEquipments.faintTolerance&&
-                head.iceTolerance+body.iceTolerance+arm.iceTolerance+waist.iceTolerance+leg.iceTolerance>=this.state.skillEquipments.iceTolerance&&
-                head.miasmaAdjustment+body.miasmaAdjustment+arm.miasmaAdjustment+waist.miasmaAdjustment+leg.miasmaAdjustment>=this.state.skillEquipments.miasmaAdjustment&&
-                head.sleepTolerance+body.sleepTolerance+arm.sleepTolerance+waist.sleepTolerance+leg.sleepTolerance>=this.state.skillEquipments.sleepTolerance&&
-                head.attributeTolerance+body.attributeTolerance+arm.attributeTolerance+waist.attributeTolerance+leg.attributeTolerance>=this.state.skillEquipments.attributeTolerance&&
-                head.quakeProof+body.quakeProof+arm.quakeProof+waist.quakeProof+leg.quakeProof>=this.state.skillEquipments.quakeProof&&
-                head.poisonTolerance+body.poisonTolerance+arm.poisonTolerance+waist.poisonTolerance+leg.poisonTolerance>=this.state.skillEquipments.poisonTolerance&&
-                head.mudTolerance+body.mudTolerance+arm.mudTolerance+waist.mudTolerance+leg.mudTolerance>=this.state.skillEquipments.mudTolerance&&
-                head.bombTolerance+body.bombTolerance+arm.bombTolerance+waist.bombTolerance+leg.bombTolerance>=this.state.skillEquipments.bombTolerance&&
-                head.fireTolerance+body.fireTolerance+arm.fireTolerance+waist.fireTolerance+leg.fireTolerance>=this.state.skillEquipments.fireTolerance&&
-                head.winceTolerance+body.winceTolerance+arm.winceTolerance+waist.winceTolerance+leg.winceTolerance>=this.state.skillEquipments.winceTolerance&&
-                head.windPressureTolerance+body.windPressureTolerance+arm.windPressureTolerance+waist.windPressureTolerance+leg.windPressureTolerance>=this.state.skillEquipments.windPressureTolerance&&
-                head.defenseDownTolerance+body.defenseDownTolerance+arm.defenseDownTolerance+waist.defenseDownTolerance+leg.defenseDownTolerance>=this.state.skillEquipments.defenseDownTolerance&&
-                head.paralysisTolerance+body.paralysisTolerance+arm.paralysisTolerance+waist.paralysisTolerance+leg.paralysisTolerance>=this.state.skillEquipments.paralysisTolerance&&
-                head.waterTolerance+body.waterTolerance+arm.waterTolerance+waist.waterTolerance+leg.waterTolerance>=this.state.skillEquipments.waterTolerance&&
-                head.earplug+body.earplug+arm.earplug+waist.earplug+leg.earplug>=this.state.skillEquipments.earplug&&
-                head.dragonTolerance+body.dragonTolerance+arm.dragonTolerance+waist.dragonTolerance+leg.dragonTolerance>=this.state.skillEquipments.dragonTolerance&&
-                head.lacerationTolerance+body.lacerationTolerance+arm.lacerationTolerance+waist.lacerationTolerance+leg.lacerationTolerance>=this.state.skillEquipments.lacerationTolerance&&
-                head.heatVoid+body.heatVoid+arm.heatVoid+waist.heatVoid+leg.heatVoid>=this.state.skillEquipments.heatVoid&&
-                head.miasmaTolerance+body.miasmaTolerance+arm.miasmaTolerance+waist.miasmaTolerance+leg.miasmaTolerance>=this.state.skillEquipments.miasmaTolerance&&
-                head.windPressureVoid+body.windPressureVoid+arm.windPressureVoid+waist.windPressureVoid+leg.windPressureVoid>=this.state.skillEquipments.windPressureVoid&&
-                head.gunshotBuildup+body.gunshotBuildup+arm.gunshotBuildup+waist.gunshotBuildup+leg.gunshotBuildup>=this.state.skillEquipments.gunshotBuildup&&
-                head.cannonBallUp+body.cannonBallUp+arm.cannonBallUp+waist.cannonBallUp+leg.cannonBallUp>=this.state.skillEquipments.cannonBallUp&&
-                head.slugBuildup+body.slugBuildup+arm.slugBuildup+waist.slugBuildup+leg.slugBuildup>=this.state.skillEquipments.slugBuildup&&
-                head.ammoBuildup+body.ammoBuildup+arm.ammoBuildup+waist.ammoBuildup+leg.ammoBuildup>=this.state.skillEquipments.ammoBuildup&&
-                head.pierceBuildup+body.pierceBuildup+arm.pierceBuildup+waist.pierceBuildup+leg.pierceBuildup>=this.state.skillEquipments.pierceBuildup&&
-                head.itemBuildup+body.itemBuildup+arm.itemBuildup+waist.itemBuildup+leg.itemBuildup>=this.state.skillEquipments.itemBuildup&&
-                head.fungiLove+body.fungiLove+arm.fungiLove+waist.fungiLove+leg.fungiLove>=this.state.skillEquipments.fungiLove&&
-                head.widening+body.widening+arm.widening+waist.widening+leg.widening>=this.state.skillEquipments.widening&&
-                head.manure+body.manure+arm.manure+waist.manure+leg.manure>=this.state.skillEquipments.manure&&
-                head.preparation+body.preparation+arm.preparation+waist.preparation+leg.preparation>=this.state.skillEquipments.preparation&&
-                head.flashBuildup+body.flashBuildup+arm.flashBuildup+waist.flashBuildup+leg.flashBuildup>=this.state.skillEquipments.flashBuildup&&
-                head.whetstone+body.whetstone+arm.whetstone+waist.whetstone+leg.whetstone>=this.state.skillEquipments.whetstone&&
-                head.grill+body.grill+arm.grill+waist.grill+leg.grill>=this.state.skillEquipments.grill&&
-                head.eating+body.eating+arm.eating+waist.eating+leg.eating>=this.state.skillEquipments.eating&&
-                head.gratification+body.gratification+arm.gratification+waist.gratification+leg.gratification>=this.state.skillEquipments.gratification&&
-                head.transport+body.transport+arm.transport+waist.transport+leg.transport>=this.state.skillEquipments.transport&&
-                head.insect+body.insect+arm.insect+waist.insect+leg.insect>=this.state.skillEquipments.insect&&
-                head.gather+body.gather+arm.gather+waist.gather+leg.gather>=this.state.skillEquipments.gather&&
-                head.flora+body.flora+arm.flora+waist.flora+leg.flora>=this.state.skillEquipments.flora&&
-                head.exploraLucky+body.exploraLucky+arm.exploraLucky+waist.exploraLucky+leg.exploraLucky>=this.state.skillEquipments.exploraLucky&&
-                head.geology+body.geology+arm.geology+waist.geology+leg.geology>=this.state.skillEquipments.geology&&
-                head.stripping+body.stripping+arm.stripping+waist.stripping+leg.stripping>=this.state.skillEquipments.stripping&&
-                head.honey+body.honey+arm.honey+waist.honey+leg.honey>=this.state.skillEquipments.honey&&
-                head.detection+body.detection+arm.detection+waist.detection+leg.detection>=this.state.skillEquipments.detection&&
-                head.capture+body.capture+arm.capture+waist.capture+leg.capture>=this.state.skillEquipments.capture&&
-                head.lucky+body.lucky+arm.lucky+waist.lucky+leg.lucky>=this.state.skillEquipments.lucky&&
-                head.lead+body.lead+arm.lead+waist.lead+leg.lead>=this.state.skillEquipments.lead&&
-                head.threaten+body.threaten+arm.threaten+waist.threaten+leg.threaten>=this.state.skillEquipments.threaten&&
-                head.guideReactionUp+body.guideReactionUp+arm.guideReactionUp+waist.guideReactionUp+leg.guideReactionUp>=this.state.skillEquipments.guideReactionUp&&
-                head.latentia+body.latentia+arm.latentia+waist.latentia+leg.latentia>=this.state.skillEquipments.latentia&&
-                head.tracing+body.tracing+arm.tracing+waist.tracing+leg.tracing>=this.state.skillEquipments.tracing&&
-                head.scholar+body.scholar+arm.scholar+waist.scholar+leg.scholar>=this.state.skillEquipments.scholar&&
-                head.squat+body.squat+arm.squat+waist.squat+leg.squat>=this.state.skillEquipments.squat&&
-                head.waterPlaceAdjustment+body.waterPlaceAdjustment+arm.waterPlaceAdjustment+waist.waterPlaceAdjustment+leg.waterPlaceAdjustment>=this.state.skillEquipments.waterPlaceAdjustment&&
-                head.loadingUp+body.loadingUp+arm.loadingUp+waist.loadingUp+leg.loadingUp>=this.state.skillEquipments.loadingUp&&
-                head.fishing+body.fishing+arm.fishing+waist.fishing+leg.fishing>=this.state.skillEquipments.fishing&&
+                increment(head.bestHitAttribute)+increment(body.bestHitAttribute)+increment(arm.bestHitAttribute)+increment(waist.bestHitAttribute)+increment(leg.bestHitAttribute)>=this.state.skillEquipments.bestHitAttribute&&
+                increment(head.bestHitParticular)+increment(body.bestHitParticular)+increment(arm.bestHitParticular)+increment(waist.bestHitParticular)+increment(leg.bestHitParticular)>=this.state.skillEquipments.bestHitParticular&&
+                increment(head.thunderEnhance)+increment(body.thunderEnhance)+increment(arm.thunderEnhance)+increment(waist.thunderEnhance)+increment(leg.thunderEnhance)>=this.state.skillEquipments.thunderEnhance&&
+                increment(head.iceEnhance)+increment(body.iceEnhance)+increment(arm.iceEnhance)+increment(waist.iceEnhance)+increment(leg.iceEnhance)>=this.state.skillEquipments.iceEnhance&&
+                increment(head.sleepEnhance)+increment(body.sleepEnhance)+increment(arm.sleepEnhance)+increment(waist.sleepEnhance)+increment(leg.sleepEnhance)>=this.state.skillEquipments.sleepEnhance&&
+                increment(head.poisonEnhance)+increment(body.poisonEnhance)+increment(arm.poisonEnhance)+increment(waist.poisonEnhance)+increment(leg.poisonEnhance)>=this.state.skillEquipments.poisonEnhance&&
+                increment(head.explosionEnhance)+increment(body.explosionEnhance)+increment(arm.explosionEnhance)+increment(waist.explosionEnhance)+increment(leg.explosionEnhance)>=this.state.skillEquipments.explosionEnhance&&
+                increment(head.hien)+increment(body.hien)+increment(arm.hien)+increment(waist.hien)+increment(leg.hien)>=this.state.skillEquipments.hien&&
+                increment(head.fireEnhance)+increment(body.fireEnhance)+increment(arm.fireEnhance)+increment(waist.fireEnhance)+increment(leg.fireEnhance)>=this.state.skillEquipments.fireEnhance&&
+                increment(head.paralysisEnhance)+increment(body.paralysisEnhance)+increment(arm.paralysisEnhance)+increment(waist.paralysisEnhance)+increment(leg.paralysisEnhance)>=this.state.skillEquipments.paralysisEnhance&&
+                increment(head.chatch)+increment(body.chatch)+increment(arm.chatch)+increment(waist.chatch)+increment(leg.chatch)>=this.state.skillEquipments.chatch&&
+                increment(head.waterEnhance)+increment(body.waterEnhance)+increment(arm.waterEnhance)+increment(waist.waterEnhance)+increment(leg.waterEnhance)>=this.state.skillEquipments.waterEnhance&&
+                increment(head.dragonEnhance)+increment(body.dragonEnhance)+increment(arm.dragonEnhance)+increment(waist.dragonEnhance)+increment(leg.dragonEnhance)>=this.state.skillEquipments.dragonEnhance&&
+                increment(head.attack)+increment(body.attack)+increment(arm.attack)+increment(waist.attack)+increment(leg.attack)>=this.state.skillEquipments.attack&&
+                increment(head.challenger)+increment(body.challenger)+increment(arm.challenger)+increment(waist.challenger)+increment(leg.challenger)>=this.state.skillEquipments.challenger&&
+                increment(head.might)+increment(body.might)+increment(arm.might)+increment(waist.might)+increment(leg.might)>=this.state.skillEquipments.might&&
+                increment(head.specialBestHit)+increment(body.specialBestHit)+increment(arm.specialBestHit)+increment(waist.specialBestHit)+increment(leg.specialBestHit)>=this.state.skillEquipments.specialBestHit&&
+                increment(head.resentment)+increment(body.resentment)+increment(arm.resentment)+increment(waist.resentment)+increment(leg.resentment)>=this.state.skillEquipments.resentment&&
+                increment(head.dragonSealEnhance)+increment(body.dragonSealEnhance)+increment(arm.dragonSealEnhance)+increment(waist.dragonSealEnhance)+increment(leg.dragonSealEnhance)>=this.state.skillEquipments.dragonSealEnhance&&
+                increment(head.crisisChance)+increment(body.crisisChance)+increment(arm.crisisChance)+increment(waist.crisisChance)+increment(leg.crisisChance)>=this.state.skillEquipments.crisisChance&&
+                increment(head.slideEnhance)+increment(body.slideEnhance)+increment(arm.slideEnhance)+increment(waist.slideEnhance)+increment(leg.slideEnhance)>=this.state.skillEquipments.slideEnhance&&
+                increment(head.ko)+increment(body.ko)+increment(arm.ko)+increment(waist.ko)+increment(leg.ko)>=this.state.skillEquipments.ko&&
+                increment(head.weekness)+increment(body.weekness)+increment(arm.weekness)+increment(waist.weekness)+increment(leg.weekness)>=this.state.skillEquipments.weekness&&
+                increment(head.jump)+increment(body.jump)+increment(arm.jump)+increment(waist.jump)+increment(leg.jump)>=this.state.skillEquipments.jump&&
+                increment(head.concentration)+increment(body.concentration)+increment(arm.concentration)+increment(waist.concentration)+increment(leg.concentration)>=this.state.skillEquipments.concentration&&
+                increment(head.gradStamina)+increment(body.gradStamina)+increment(arm.gradStamina)+increment(waist.gradStamina)+increment(leg.gradStamina)>=this.state.skillEquipments.gradStamina&&
+                increment(head.frankAttribute)+increment(body.frankAttribute)+increment(arm.frankAttribute)+increment(waist.frankAttribute)+increment(leg.frankAttribute)>=this.state.skillEquipments.frankAttribute&&
+                increment(head.artisan)+increment(body.artisan)+increment(arm.artisan)+increment(waist.artisan)+increment(leg.artisan)>=this.state.skillEquipments.artisan&&
+                increment(head.poisonDamageEnhance)+increment(body.poisonDamageEnhance)+increment(arm.poisonDamageEnhance)+increment(waist.poisonDamageEnhance)+increment(leg.poisonDamageEnhance)>=this.state.skillEquipments.poisonDamageEnhance&&
+                increment(head.bluntInstrument)+increment(body.bluntInstrument)+increment(arm.bluntInstrument)+increment(waist.bluntInstrument)+increment(leg.bluntInstrument)>=this.state.skillEquipments.bluntInstrument&&
+                increment(head.storage)+increment(body.storage)+increment(arm.storage)+increment(waist.storage)+increment(leg.storage)>=this.state.skillEquipments.storage&&
+                increment(head.ride)+increment(body.ride)+increment(arm.ride)+increment(waist.ride)+increment(leg.ride)>=this.state.skillEquipments.ride&&
+                increment(head.drawSwordPower)+increment(body.drawSwordPower)+increment(arm.drawSwordPower)+increment(waist.drawSwordPower)+increment(leg.drawSwordPower)>=this.state.skillEquipments.drawSwordPower&&
+                increment(head.drawSwordSkill)+increment(body.drawSwordSkill)+increment(arm.drawSwordSkill)+increment(waist.drawSwordSkill)+increment(leg.drawSwordSkill)>=this.state.skillEquipments.drawSwordSkill&&
+                increment(head.flutePlayer)+increment(body.flutePlayer)+increment(arm.flutePlayer)+increment(waist.flutePlayer)+increment(leg.flutePlayer)>=this.state.skillEquipments.flutePlayer&&
+                increment(head.fortitude)+increment(body.fortitude)+increment(arm.fortitude)+increment(waist.fortitude)+increment(leg.fortitude)>=this.state.skillEquipments.fortitude&&
+                increment(head.bombardment)+increment(body.bombardment)+increment(arm.bombardment)+increment(waist.bombardment)+increment(leg.bombardment)>=this.state.skillEquipments.bombardment&&
+                increment(head.gunnery)+increment(body.gunnery)+increment(arm.gunnery)+increment(waist.gunnery)+increment(leg.gunnery)>=this.state.skillEquipments.gunnery&&
+                increment(head.bomber)+increment(body.bomber)+increment(arm.bomber)+increment(waist.bomber)+increment(leg.bomber)>=this.state.skillEquipments.bomber&&
+                increment(head.break)+increment(body.break)+increment(arm.break)+increment(waist.break)+increment(leg.break)>=this.state.skillEquipments.break&&
+                increment(head.forceWake)+increment(body.forceWake)+increment(arm.forceWake)+increment(waist.forceWake)+increment(leg.forceWake)>=this.state.skillEquipments.forceWake&&
+                increment(head.full)+increment(body.full)+increment(arm.full)+increment(waist.full)+increment(leg.full)>=this.state.skillEquipments.full&&
+                increment(head.enhanceEndure)+increment(body.enhanceEndure)+increment(arm.enhanceEndure)+increment(waist.enhanceEndure)+increment(leg.enhanceEndure)>=this.state.skillEquipments.enhanceEndure&&
+                increment(head.polish)+increment(body.polish)+increment(arm.polish)+increment(waist.polish)+increment(leg.polish)>=this.state.skillEquipments.polish&&
+                increment(head.mindEye)+increment(body.mindEye)+increment(arm.mindEye)+increment(waist.mindEye)+increment(leg.mindEye)>=this.state.skillEquipments.mindEye&&
+                increment(head.expert)+increment(body.expert)+increment(arm.expert)+increment(waist.expert)+increment(leg.expert)>=this.state.skillEquipments.expert&&
+                increment(head.fineSword)+increment(body.fineSword)+increment(arm.fineSword)+increment(waist.fineSword)+increment(leg.fineSword)>=this.state.skillEquipments.fineSword&&
+                increment(head.naturalEnhance)+increment(body.naturalEnhance)+increment(arm.naturalEnhance)+increment(waist.naturalEnhance)+increment(leg.naturalEnhance)>=this.state.skillEquipments.naturalEnhance&&
+                increment(head.spiritProtection)+increment(body.spiritProtection)+increment(arm.spiritProtection)+increment(waist.spiritProtection)+increment(leg.spiritProtection)>=this.state.skillEquipments.spiritProtection&&
+                increment(head.defense)+increment(body.defense)+increment(arm.defense)+increment(waist.defense)+increment(leg.defense)>=this.state.skillEquipments.defense&&
+                increment(head.recoveryRate)+increment(body.recoveryRate)+increment(arm.recoveryRate)+increment(waist.recoveryRate)+increment(leg.recoveryRate)>=this.state.skillEquipments.recoveryRate&&
+                increment(head.physicalRecoveryUp)+increment(body.physicalRecoveryUp)+increment(arm.physicalRecoveryUp)+increment(waist.physicalRecoveryUp)+increment(leg.physicalRecoveryUp)>=this.state.skillEquipments.physicalRecoveryUp&&
+                increment(head.physicalStrength)+increment(body.physicalStrength)+increment(arm.physicalStrength)+increment(waist.physicalStrength)+increment(leg.physicalStrength)>=this.state.skillEquipments.physicalStrength&&
+                increment(head.sporeKnowledge)+increment(body.sporeKnowledge)+increment(arm.sporeKnowledge)+increment(waist.sporeKnowledge)+increment(leg.sporeKnowledge)>=this.state.skillEquipments.sporeKnowledge&&
+                increment(head.guts)+increment(body.guts)+increment(arm.guts)+increment(waist.guts)+increment(leg.guts)>=this.state.skillEquipments.guts&&
+                increment(head.staminaRecovryUp)+increment(body.staminaRecovryUp)+increment(arm.staminaRecovryUp)+increment(waist.staminaRecovryUp)+increment(leg.staminaRecovryUp)>=this.state.skillEquipments.staminaRecovryUp&&
+                increment(head.staminaMaxBreak)+increment(body.staminaMaxBreak)+increment(arm.staminaMaxBreak)+increment(waist.staminaMaxBreak)+increment(leg.staminaMaxBreak)>=this.state.skillEquipments.staminaMaxBreak&&
+                increment(head.martialArt)+increment(body.martialArt)+increment(arm.martialArt)+increment(waist.martialArt)+increment(leg.martialArt)>=this.state.skillEquipments.martialArt&&
+                increment(head.hungryTolerance)+increment(body.hungryTolerance)+increment(arm.hungryTolerance)+increment(waist.hungryTolerance)+increment(leg.hungryTolerance)>=this.state.skillEquipments.hungryTolerance&&
+                increment(head.stirringUp)+increment(body.stirringUp)+increment(arm.stirringUp)+increment(waist.stirringUp)+increment(leg.stirringUp)>=this.state.skillEquipments.stirringUp&&
+                increment(head.runner)+increment(body.runner)+increment(arm.runner)+increment(waist.runner)+increment(leg.runner)>=this.state.skillEquipments.runner&&
+                increment(head.avoidDistantUp)+increment(body.avoidDistantUp)+increment(arm.avoidDistantUp)+increment(waist.avoidDistantUp)+increment(leg.avoidDistantUp)>=this.state.skillEquipments.avoidDistantUp&&
+                increment(head.avoidPower)+increment(body.avoidPower)+increment(arm.avoidPower)+increment(waist.avoidPower)+increment(leg.avoidPower)>=this.state.skillEquipments.avoidPower&&
+                increment(head.clymer)+increment(body.clymer)+increment(arm.clymer)+increment(waist.clymer)+increment(leg.clymer)>=this.state.skillEquipments.clymer&&
+                increment(head.sityuu)+increment(body.sityuu)+increment(arm.sityuu)+increment(waist.sityuu)+increment(leg.sityuu)>=this.state.skillEquipments.sityuu&&
+                increment(head.dive)+increment(body.dive)+increment(arm.dive)+increment(waist.dive)+increment(leg.dive)>=this.state.skillEquipments.dive&&
+                increment(head.guardPower)+increment(body.guardPower)+increment(arm.guardPower)+increment(waist.guardPower)+increment(leg.guardPower)>=this.state.skillEquipments.guardPower&&
+                increment(head.guardBuildup)+increment(body.guardBuildup)+increment(arm.guardBuildup)+increment(waist.guardBuildup)+increment(leg.guardBuildup)>=this.state.skillEquipments.guardBuildup&&
+                increment(head.thunderTolerance)+increment(body.thunderTolerance)+increment(arm.thunderTolerance)+increment(waist.thunderTolerance)+increment(leg.thunderTolerance)>=this.state.skillEquipments.thunderTolerance&&
+                increment(head.faintTolerance)+increment(body.faintTolerance)+increment(arm.faintTolerance)+increment(waist.faintTolerance)+increment(leg.faintTolerance)>=this.state.skillEquipments.faintTolerance&&
+                increment(head.iceTolerance)+increment(body.iceTolerance)+increment(arm.iceTolerance)+increment(waist.iceTolerance)+increment(leg.iceTolerance)>=this.state.skillEquipments.iceTolerance&&
+                increment(head.miasmaAdjustment)+increment(body.miasmaAdjustment)+increment(arm.miasmaAdjustment)+increment(waist.miasmaAdjustment)+increment(leg.miasmaAdjustment)>=this.state.skillEquipments.miasmaAdjustment&&
+                increment(head.sleepTolerance)+increment(body.sleepTolerance)+increment(arm.sleepTolerance)+increment(waist.sleepTolerance)+increment(leg.sleepTolerance)>=this.state.skillEquipments.sleepTolerance&&
+                increment(head.attributeTolerance)+increment(body.attributeTolerance)+increment(arm.attributeTolerance)+increment(waist.attributeTolerance)+increment(leg.attributeTolerance)>=this.state.skillEquipments.attributeTolerance&&
+                increment(head.quakeProof)+increment(body.quakeProof)+increment(arm.quakeProof)+increment(waist.quakeProof)+increment(leg.quakeProof)>=this.state.skillEquipments.quakeProof&&
+                increment(head.poisonTolerance)+increment(body.poisonTolerance)+increment(arm.poisonTolerance)+increment(waist.poisonTolerance)+increment(leg.poisonTolerance)>=this.state.skillEquipments.poisonTolerance&&
+                increment(head.mudTolerance)+increment(body.mudTolerance)+increment(arm.mudTolerance)+increment(waist.mudTolerance)+increment(leg.mudTolerance)>=this.state.skillEquipments.mudTolerance&&
+                increment(head.bombTolerance)+increment(body.bombTolerance)+increment(arm.bombTolerance)+increment(waist.bombTolerance)+increment(leg.bombTolerance)>=this.state.skillEquipments.bombTolerance&&
+                increment(head.fireTolerance)+increment(body.fireTolerance)+increment(arm.fireTolerance)+increment(waist.fireTolerance)+increment(leg.fireTolerance)>=this.state.skillEquipments.fireTolerance&&
+                increment(head.winceTolerance)+increment(body.winceTolerance)+increment(arm.winceTolerance)+increment(waist.winceTolerance)+increment(leg.winceTolerance)>=this.state.skillEquipments.winceTolerance&&
+                increment(head.windPressureTolerance)+increment(body.windPressureTolerance)+increment(arm.windPressureTolerance)+increment(waist.windPressureTolerance)+increment(leg.windPressureTolerance)>=this.state.skillEquipments.windPressureTolerance&&
+                increment(head.defenseDownTolerance)+increment(body.defenseDownTolerance)+increment(arm.defenseDownTolerance)+increment(waist.defenseDownTolerance)+increment(leg.defenseDownTolerance)>=this.state.skillEquipments.defenseDownTolerance&&
+                increment(head.paralysisTolerance)+increment(body.paralysisTolerance)+increment(arm.paralysisTolerance)+increment(waist.paralysisTolerance)+increment(leg.paralysisTolerance)>=this.state.skillEquipments.paralysisTolerance&&
+                increment(head.waterTolerance)+increment(body.waterTolerance)+increment(arm.waterTolerance)+increment(waist.waterTolerance)+increment(leg.waterTolerance)>=this.state.skillEquipments.waterTolerance&&
+                increment(head.earplug)+increment(body.earplug)+increment(arm.earplug)+increment(waist.earplug)+increment(leg.earplug)>=this.state.skillEquipments.earplug&&
+                increment(head.dragonTolerance)+increment(body.dragonTolerance)+increment(arm.dragonTolerance)+increment(waist.dragonTolerance)+increment(leg.dragonTolerance)>=this.state.skillEquipments.dragonTolerance&&
+                increment(head.lacerationTolerance)+increment(body.lacerationTolerance)+increment(arm.lacerationTolerance)+increment(waist.lacerationTolerance)+increment(leg.lacerationTolerance)>=this.state.skillEquipments.lacerationTolerance&&
+                increment(head.heatVoid)+increment(body.heatVoid)+increment(arm.heatVoid)+increment(waist.heatVoid)+increment(leg.heatVoid)>=this.state.skillEquipments.heatVoid&&
+                increment(head.miasmaTolerance)+increment(body.miasmaTolerance)+increment(arm.miasmaTolerance)+increment(waist.miasmaTolerance)+increment(leg.miasmaTolerance)>=this.state.skillEquipments.miasmaTolerance&&
+                increment(head.windPressureVoid)+increment(body.windPressureVoid)+increment(arm.windPressureVoid)+increment(waist.windPressureVoid)+increment(leg.windPressureVoid)>=this.state.skillEquipments.windPressureVoid&&
+                increment(head.gunshotBuildup)+increment(body.gunshotBuildup)+increment(arm.gunshotBuildup)+increment(waist.gunshotBuildup)+increment(leg.gunshotBuildup)>=this.state.skillEquipments.gunshotBuildup&&
+                increment(head.cannonBallUp)+increment(body.cannonBallUp)+increment(arm.cannonBallUp)+increment(waist.cannonBallUp)+increment(leg.cannonBallUp)>=this.state.skillEquipments.cannonBallUp&&
+                increment(head.slugBuildup)+increment(body.slugBuildup)+increment(arm.slugBuildup)+increment(waist.slugBuildup)+increment(leg.slugBuildup)>=this.state.skillEquipments.slugBuildup&&
+                increment(head.ammoBuildup)+increment(body.ammoBuildup)+increment(arm.ammoBuildup)+increment(waist.ammoBuildup)+increment(leg.ammoBuildup)>=this.state.skillEquipments.ammoBuildup&&
+                increment(head.pierceBuildup)+increment(body.pierceBuildup)+increment(arm.pierceBuildup)+increment(waist.pierceBuildup)+increment(leg.pierceBuildup)>=this.state.skillEquipments.pierceBuildup&&
+                increment(head.itemBuildup)+increment(body.itemBuildup)+increment(arm.itemBuildup)+increment(waist.itemBuildup)+increment(leg.itemBuildup)>=this.state.skillEquipments.itemBuildup&&
+                increment(head.fungiLove)+increment(body.fungiLove)+increment(arm.fungiLove)+increment(waist.fungiLove)+increment(leg.fungiLove)>=this.state.skillEquipments.fungiLove&&
+                increment(head.widening)+increment(body.widening)+increment(arm.widening)+increment(waist.widening)+increment(leg.widening)>=this.state.skillEquipments.widening&&
+                increment(head.manure)+increment(body.manure)+increment(arm.manure)+increment(waist.manure)+increment(leg.manure)>=this.state.skillEquipments.manure&&
+                increment(head.preparation)+increment(body.preparation)+increment(arm.preparation)+increment(waist.preparation)+increment(leg.preparation)>=this.state.skillEquipments.preparation&&
+                increment(head.flashBuildup)+increment(body.flashBuildup)+increment(arm.flashBuildup)+increment(waist.flashBuildup)+increment(leg.flashBuildup)>=this.state.skillEquipments.flashBuildup&&
+                increment(head.whetstone)+increment(body.whetstone)+increment(arm.whetstone)+increment(waist.whetstone)+increment(leg.whetstone)>=this.state.skillEquipments.whetstone&&
+                increment(head.grill)+increment(body.grill)+increment(arm.grill)+increment(waist.grill)+increment(leg.grill)>=this.state.skillEquipments.grill&&
+                increment(head.eating)+increment(body.eating)+increment(arm.eating)+increment(waist.eating)+increment(leg.eating)>=this.state.skillEquipments.eating&&
+                increment(head.gratification)+increment(body.gratification)+increment(arm.gratification)+increment(waist.gratification)+increment(leg.gratification)>=this.state.skillEquipments.gratification&&
+                increment(head.transport)+increment(body.transport)+increment(arm.transport)+increment(waist.transport)+increment(leg.transport)>=this.state.skillEquipments.transport&&
+                increment(head.insect)+increment(body.insect)+increment(arm.insect)+increment(waist.insect)+increment(leg.insect)>=this.state.skillEquipments.insect&&
+                increment(head.gather)+increment(body.gather)+increment(arm.gather)+increment(waist.gather)+increment(leg.gather)>=this.state.skillEquipments.gather&&
+                increment(head.flora)+increment(body.flora)+increment(arm.flora)+increment(waist.flora)+increment(leg.flora)>=this.state.skillEquipments.flora&&
+                increment(head.exploraLucky)+increment(body.exploraLucky)+increment(arm.exploraLucky)+increment(waist.exploraLucky)+increment(leg.exploraLucky)>=this.state.skillEquipments.exploraLucky&&
+                increment(head.geology)+increment(body.geology)+increment(arm.geology)+increment(waist.geology)+increment(leg.geology)>=this.state.skillEquipments.geology&&
+                increment(head.stripping)+increment(body.stripping)+increment(arm.stripping)+increment(waist.stripping)+increment(leg.stripping)>=this.state.skillEquipments.stripping&&
+                increment(head.honey)+increment(body.honey)+increment(arm.honey)+increment(waist.honey)+increment(leg.honey)>=this.state.skillEquipments.honey&&
+                increment(head.detection)+increment(body.detection)+increment(arm.detection)+increment(waist.detection)+increment(leg.detection)>=this.state.skillEquipments.detection&&
+                increment(head.capture)+increment(body.capture)+increment(arm.capture)+increment(waist.capture)+increment(leg.capture)>=this.state.skillEquipments.capture&&
+                increment(head.lucky)+increment(body.lucky)+increment(arm.lucky)+increment(waist.lucky)+increment(leg.lucky)>=this.state.skillEquipments.lucky&&
+                increment(head.lead)+increment(body.lead)+increment(arm.lead)+increment(waist.lead)+increment(leg.lead)>=this.state.skillEquipments.lead&&
+                increment(head.threaten)+increment(body.threaten)+increment(arm.threaten)+increment(waist.threaten)+increment(leg.threaten)>=this.state.skillEquipments.threaten&&
+                increment(head.guideReactionUp)+increment(body.guideReactionUp)+increment(arm.guideReactionUp)+increment(waist.guideReactionUp)+increment(leg.guideReactionUp)>=this.state.skillEquipments.guideReactionUp&&
+                increment(head.latentia)+increment(body.latentia)+increment(arm.latentia)+increment(waist.latentia)+increment(leg.latentia)>=this.state.skillEquipments.latentia&&
+                increment(head.tracing)+increment(body.tracing)+increment(arm.tracing)+increment(waist.tracing)+increment(leg.tracing)>=this.state.skillEquipments.tracing&&
+                increment(head.scholar)+increment(body.scholar)+increment(arm.scholar)+increment(waist.scholar)+increment(leg.scholar)>=this.state.skillEquipments.scholar&&
+                increment(head.squat)+increment(body.squat)+increment(arm.squat)+increment(waist.squat)+increment(leg.squat)>=this.state.skillEquipments.squat&&
+                increment(head.waterPlaceAdjustment)+increment(body.waterPlaceAdjustment)+increment(arm.waterPlaceAdjustment)+increment(waist.waterPlaceAdjustment)+increment(leg.waterPlaceAdjustment)>=this.state.skillEquipments.waterPlaceAdjustment&&
+                increment(head.loadingUp)+increment(body.loadingUp)+increment(arm.loadingUp)+increment(waist.loadingUp)+increment(leg.loadingUp)>=this.state.skillEquipments.loadingUp&&
+                increment(head.fishing)+increment(body.fishing)+increment(arm.fishing)+increment(waist.fishing)+increment(leg.fishing)>=this.state.skillEquipments.fishing
                 ) {
-
+                  myItems.push('頭'+head.name+'体'+body.name+'腕'+arm.name+'腰'+waist.name+'足'+leg.name);
                 }
               }
             }
           }
         }
       }
-
-      /*
-      this.setState((prevState) => ({
-        items: prevState.items.concat(newItem)
-      }));
-      */
+      // setStateのタイミングは非同期の為注意　forの中身でやると事故った　ちゃんとした方法があるとは思う
+      this.setState({items: myItems});
+      console.log('終わり');
     }
   }
+
+  function increment(x) {
+    if (isNaN(x)) x = 0;
+    return x;
+  };
 
   const CheckList = (props) => {
     var list = [];
@@ -719,11 +723,17 @@
 
 
   const EquipmentList = (props) => {
+    console.log("変更");
     var list = [];
-
+    console.log(props);
+    for (var i in props.equipment) {
+      list.push(<li>{props.equipment[i]}</li>);
+    }
     return (
       <div>
-        
+        <ul>
+        {list}
+        </ul>
       </div>
     );
   }
